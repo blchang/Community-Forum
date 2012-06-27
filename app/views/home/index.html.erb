@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title><%= "TEST PAGE" %></title>
+  </head>
+  <body>
+    <p><%= "Test 1" %></p>
+    <p>This is an example of how ERb fills out a template.</p>
+    <%= text_field :phone, :num, :placeholder => "123", :id => "phone_number"%>
+    <div id="info">
+      <span>
+        <%= button_to "Press Me", {}, :id => "test_call_button" %>
+        <p id="status"></p>
+      </span>
+    </div>
+    <div id="info">
+      <%= button_to "Add to count", {}, :id => "add_button" %>
+      <p id="show_count"></p>
+    </div>
+  </body>
+</html>

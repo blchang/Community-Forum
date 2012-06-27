@@ -15,6 +15,7 @@ group :development, :test do
   gem 'rspec-rails'
 end
 gem 'haml'
+gem 'haml-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

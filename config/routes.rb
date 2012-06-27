@@ -1,6 +1,10 @@
 CommunityForum::Application.routes.draw do
   get "home/index"
 
+  match "home/count" => "home#count"
+  match "home/add_count" => "home#add_count"
+  match "home/status_update" => "home#status_update"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
