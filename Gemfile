@@ -5,10 +5,13 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :production do
+  gem 'pg'
+end
 
 gem 'json'
 group :development, :test do
+  gem 'sqlite3'
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
   gem 'capybara'
