@@ -26,7 +26,8 @@
       <div class='loader' style='display:none'><img src='http://www.poundstopocket.co.uk/images/spin.gif'></div>
       <div class='tabs'>
         <%= button_to "Home (Nothing)", '#',:id => "home"%>
-        <%= button_to "Page1 (JQUERY)", '#2', :id => "page1"%>
+        <%= button_to "Page1 (JQUERY)", '#2', :id => "page1q"%>
+        <%= button_to "Page2 (JQUERY)", '#2', :id => "page2q"%>
         <%= button_to "Page2 (PJAX Testing)", '/home/render_partial2', :data => { :pjax => "#image" }, :id => 'page2' %>
         <a href='/home/render_partial1' data-pjax='#image'>Page1 (PJAX Testing)</a>
         <%= link_to "Page2-2 (PJAX Testing)", '/home/render_partial2', :data => { :pjax => "#image" } %>

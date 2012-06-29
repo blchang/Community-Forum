@@ -18,4 +18,4 @@
 // $(function() {
 //   $("a[data-pjax]").pjax({timeout: 4000}).live('click', function(){
 //   $('.loader').fadeIn(150);
-});
+// });
