@@ -33,7 +33,7 @@ class HomeController < ApplicationController
   end
 
   def self.random
-    rand(1..1000).to_s
+    rand(1000).to_s
   end
 
   def render_partial1
