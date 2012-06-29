@@ -28,24 +28,28 @@ $(document).ready(function() {
         });
   });
   $('#page1q').click(function(event) {
+    location.hash = 'foo';
+    location.pathname = '/'
     event.preventDefault();
     $.get('/home/render_partial1', {}, function(data){ 
       $('#image').html(data);
     });
-    location.hash = 'foo';
   });
 
   $('#page2q').click(function(event) {
+    location.hash = 'bar';
+    location.pathname = '/'
     event.preventDefault();
     $.get('/home/render_partial2', {}, function(data){ 
       $('#image').html(data);
     });
-    location.hash = 'bar';
   });
 
-  $(window).bind('hashchange', function() {
+  var newHash = window.location.hash;
+  var pathname = window.location.pathname;
+
+  function load() {
     var newHash = window.location.hash;
-    $('#show_count').html(newHash);
     if (newHash === '#foo') {
       $.get('/home/render_partial1', {}, function(data){ 
         $('#image').html(data);
@@ -55,7 +59,16 @@ $(document).ready(function() {
         $('#image').html(data);
       }); 
     };
+  };
+
+  $(window).bind('hashchange', function() {
+    load();
   });
+
+  $('#show_count').html(pathname);
+  if (pathname === '/' && (newHash === '#foo' || newHash == '#bar')){
+    load();
+  }
 
 
   // $('#page2').click(function(event) {
