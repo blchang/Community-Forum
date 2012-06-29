@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  # before_filter :set_layout
+
   def index
   end
 
@@ -29,4 +31,17 @@ class HomeController < ApplicationController
       render :text => "No =["
     end
   end
+
+  def self.random
+    rand(1..1000).to_s
+  end
+
+  def render_partial1
+    render :partial => "image1"
+  end
+
+  def render_partial2
+    render :partial => "image2"
+  end
+
 end

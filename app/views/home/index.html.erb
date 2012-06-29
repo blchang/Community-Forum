@@ -1,20 +1,41 @@
 <html>
+
   <head>
     <title><%= "TEST PAGE" %></title>
   </head>
+
   <body>
-    <p><%= "Test 1" %></p>
-    <p>This is an example of how ERb fills out a template.</p>
-    <%= text_field :phone, :num, :placeholder => "123", :id => "phone_number"%>
-    <div id="info">
-      <span>
-        <%= button_to "Press Me", {}, :id => "test_call_button" %>
-        <p id="status"></p>
-      </span>
-    </div>
-    <div id="info">
-      <%= button_to "Add to count", {}, :id => "add_button" %>
-      <p id="show_count"></p>
+    <div id='main'>
+      <p><%= "Test 1" %></p>
+      <p>This is an example of how ERb fills out a template.</p>
+      <%= text_field :phone, :num, :placeholder => "123", :id => "phone_number"%>
+
+      <div id="info">
+        <span>
+          <%= button_to "Press Me", {}, :id => "test_call_button" %>
+          <p id="status"></p>
+        </span>
+      </div>
+
+      <div id="info">
+        <%= button_to "Add to count", {}, :id => "add_button" %>
+        <p id="show_count"></p>
+      </div>
+
+      <p><%= "Random Number Changes When Entire Page Refreshes: " + HomeController.random %></p>
+      <div class='loader' style='display:none'><img src='http://www.poundstopocket.co.uk/images/spin.gif'></div>
+      <div class='tabs'>
+        <%= button_to "Home (Nothing)", '#',:id => "home"%>
+        <%= button_to "Page1 (JQUERY)", '#2', :id => "page1"%>
+        <%= button_to "Page2 (PJAX Testing)", '/home/render_partial2', :data => { :pjax => "#image" }, :id => 'page2' %>
+        <a href='/home/render_partial1' data-pjax='#image'>Page1 (PJAX Testing)</a>
+        <%= link_to "Page2-2 (PJAX Testing)", '/home/render_partial2', :data => { :pjax => "#image" } %>
+      </div>
+
+
+      <div id="image">
+      </div>
     </div>
   </body>
+
 </html>

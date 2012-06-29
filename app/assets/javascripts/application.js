@@ -12,4 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.pjax
 //= require_tree .
+
+// $(function() {
+//   $("a[data-pjax]").pjax({timeout: 4000}).live('click', function(){
+//   $('.loader').fadeIn(150);
+});
