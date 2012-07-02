@@ -6,6 +6,11 @@ CommunityForum::Application.routes.draw do
   match "home/status_update" => "home#status_update"
   match "home/render_partial1" => "home#render_partial1"
   match "home/render_partial2" => "home#render_partial2"
+  match "#foo" => "home#render_all1"
+  match "#foo" => "home#render_all1"
+  match "/home/check_params" => "home#check_params"
+  match "*foo" => "home#render_partial1"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

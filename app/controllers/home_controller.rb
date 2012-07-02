@@ -44,4 +44,18 @@ class HomeController < ApplicationController
     render :partial => "image2"
   end
 
+  def render_all1
+    render :layout => "index"
+    render_partial1
+  end
+
+  def render_all2
+    render :layout => "index"
+    render_partial2
+  end
+
+  def check_params
+    render :text => params.to_s
+  end
+
 end

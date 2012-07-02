@@ -45,6 +45,9 @@ $(document).ready(function() {
     });
   });
 
+  var d = $.get("/home/check_params", function(data) {return data});
+  d.always(function() { $('#show_count').html(d.responseText)});
+
   var newHash = window.location.hash;
   var pathname = window.location.pathname;
 
@@ -65,10 +68,10 @@ $(document).ready(function() {
     load();
   });
 
-  $('#show_count').html(pathname);
-  if (pathname === '/' && (newHash === '#foo' || newHash == '#bar')){
-    load();
-  }
+  // $('#show_count').html(pathname);
+  // if (pathname === '/' && (newHash === '#foo' || newHash == '#bar')){
+  //   load();
+  // }
 
 
   // $('#page2').click(function(event) {
@@ -85,8 +88,13 @@ $(document).ready(function() {
 
   $('a').pjax();
 
-  // $('#image')
-  //   .on('pjax:start', function() { $('.loader').show() })
-  //   .on('pjax:end',   function() { $('.loader').hide() });
+  $.sammy('#image', function() {
+    this.get('#foo', function() {
+      load();
+    });
+    this.get('#bar', function() {
+      load();
+    });
+  }).run('#/');
 
 });
